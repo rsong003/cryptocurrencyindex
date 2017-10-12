@@ -1,0 +1,39 @@
+{
+  "name": "cryptoIndex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wwang8421/cryptoIndex.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wwang8421/cryptoIndex/issues"
+  },
+  "homepage": "https://github.com/wwang8421/cryptoIndex#readme",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.18.2",
+    "d3": "^4.11.0",
+    "express": "^4.16.2",
+    "pg": "^7.3.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-router": "^4.2.0",
+    "redux": "^3.7.2",
+    "sequelize": "^4.13.8"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "webpack": "^3.7.1"
+  }
+}
