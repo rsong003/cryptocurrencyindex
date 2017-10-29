@@ -2,7 +2,8 @@ const express = require('express');
 const parser = require('body-parser');
 const PORT = process.env.PORT || 3030;
 const path = require('path');
-
+const db = require('../database')
+const table = require('../database/Users.js')
 const app = express()
   .use(parser.json())
   .use(parser.urlencoded({ extended: true }))
