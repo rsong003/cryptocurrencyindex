@@ -45,6 +45,7 @@
     "react-stockcharts": "0.7.0-beta.18",
     "redux": "^3.7.2",
     "redux-promise": "^0.5.3",
+    "redux-thunk": "^2.2.0",
     "sequelize": "^4.4.2"
   },
   "devDependencies": {

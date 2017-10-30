@@ -34,7 +34,4 @@
 // 		)
 // 	}
 // }
-// // render(
-// // 	<ChartComponent />,
-// // 	document.getElementById("root")
-// // );
+
