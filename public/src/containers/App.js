@@ -33,6 +33,7 @@ class App extends Component {
     console.log(this.props, 'this is the props in app')
     return(
       <div> 
+        <Dashboard />
         <Login />
         <BrowserRouter>
           <Switch>

@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import coinsReducer from './coinsReducer.js'
+import bitcoin from './btcReducer.js'
+import ethereum from './ethReducer.js'
 
 const rootReducer = combineReducers({
-  coins: coinsReducer
+  BTC: bitcoin,
+  ETH: ethereum
 })
 
 export default rootReducer;

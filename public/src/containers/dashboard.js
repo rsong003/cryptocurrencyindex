@@ -17,9 +17,8 @@ const mapStateToProps = (state) =>{
   console.log(state, 'this is the state in dashboard')
   //console.log('this is the state in main DASHBOARD', state)
   return {
-    bitcoinHistorical : state.coins.bitcoinHistorical,
-    bitcoin: state.coins.bitcoinHistorical
-
+    bitcoinHistorical : state.BTC.bitcoinHistorical,
+    bitcoin: state.BTC.bitcoinHistorical
   }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -36,7 +35,7 @@ class Dashboard extends Component{
     }
   }
   render(){    
-    console.log(this.props)
+    console.log(this.props, 'this is the props in dashboard')
     return (
       <div className = "container">
         <div className = "row">
@@ -46,7 +45,7 @@ class Dashboard extends Component{
         <div className = "row">
           <div className = "col-sm-3 title"> Markets</div>
           <div className = "col-sm-9">
-            {/* <ChartComponent />  */}
+          {this.props.bitcoinHistorical.length === 0 ? <div> ...Loading </div> : <ChartComponent />}
           </div>
         </div>
         <div className = "row">

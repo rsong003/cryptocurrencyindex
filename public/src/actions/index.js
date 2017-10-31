@@ -10,14 +10,21 @@ export function updateBitcoinPrice(request) {
 }
 export const getHistoricalBitcoinPrice = historical => ({
   type: GET_HISTORICAL_BITCOIN,
-  payload: historical.data.Data
+  payload: historical
 }) 
 
 export const fetchHistoricalBitcoin = coords => (dispatch) => {
   axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&allData=true')
   .then(result => {
     console.log(result, 'this is the reuslt of the API call')
-    dispatch(getHistoricalBitcoinPrice(result))
+    const bitcoinArray = []
+    var newBitcoinData = result.data.Data
+    console.log(newBitcoinData)
+    for (let i = 0; i < newBitcoinData.length; i++){
+      let pricePointNode = {date: new Date(newBitcoinData[i].time), open: newBitcoinData[i].open, high: newBitcoinData[i].high, low: newBitcoinData[i].low, close: newBitcoinData[i].close}
+      bitcoinArray.push(pricePointNode)
+    }
+    dispatch(getHistoricalBitcoinPrice(bitcoinArray))
   })
 }
 
