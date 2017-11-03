@@ -12,8 +12,6 @@ import { TypeChooser } from "react-stockcharts/lib/helper";
 
 
 const mapStateToProps = (state) =>{
-  console.log(state, 'this is the state in dashboard')
-  //console.log('this is the state in main DASHBOARD', state)
   return {
     bitcoinHistorical : state.BTC.bitcoinHistorical,
     bitcoin: state.BTC.bitcoinHistorical
@@ -21,23 +19,10 @@ const mapStateToProps = (state) =>{
 }
 
 class ChartComponent extends Component {
-	// componentDidMount() {
-	// 	const newBitcoinData = bitcoinData.bitcoinData.Data
-	// 	console.log(newBitcoinData)
-		
-	//   for (let i = 0; i < newBitcoinData.length; i++){
-	// 		let node = {date: new Date(newBitcoinData[i].time), open: newBitcoinData[i].open, high: newBitcoinData[i].high, low: newBitcoinData[i].low, close: newBitcoinData[i].close}
-	// 		bitCoinArray.push(node)
-	// 	}
-	// 	console.log(bitCoinArray)
-	// }
 	
 	render() {
-		console.log(this.props.bitcoin, 'this is the props in line')
 		const chartBitcoinData = { data: this.props.bitcoin, ratio: 2, type: "hybrid", width: 225, }
-		// if (this.state == null) {
-		// 	return <div>Loading...</div>
-		// }
+		
 		return (
 			<TypeChooser>
 				{type => <Chart type={type} data={chartBitcoinData.data} />}

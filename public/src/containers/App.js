@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import Dashboard from './dashboard';
+import Dashboard from './Dashboard';
 import { BrowserRouter, Route, Switch, PropsRoute } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
-import {fetchHistoricalBitcoin, getHistoricalBitcoinPrice} from '../actions/index.js'
+import {fetchHistoricalBitcoin, getHistoricalBitcoinPrice} from '../actions/Bitcoin.js'
+import {fetchNewsArticles} from '../actions/NewsArticles.js'
 import Login from './Login';
+
 
 
 const mapStateToProps = (state) =>{
@@ -27,7 +29,9 @@ class App extends Component {
   componentDidMount(){
     const { dispatch } = this.props;
     dispatch(fetchHistoricalBitcoin())
+    dispatch(fetchNewsArticles())
   }
+  
 
   render(){
     console.log(this.props, 'this is the props in app')

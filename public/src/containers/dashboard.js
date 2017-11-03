@@ -7,18 +7,18 @@ import axios from 'axios'
 import {Line} from 'react-chartjs-2';
 import ChartComponent from './Line';
 import {connect} from 'react-redux'
-import {getHistoricalBitcoinPrice, updateBitcoinPrice } from '../actions/index.js'
+import {getHistoricalBitcoinPrice, updateBitcoinPrice } from '../actions/Bitcoin.js'
 import {bindActionCreators} from 'redux'
-
-
+import NewsComponent from './NewsComponent.js'
+import CryptoTicker from './CryptoTicker'
 
 
 const mapStateToProps = (state) =>{
-  console.log(state, 'this is the state in dashboard')
-  //console.log('this is the state in main DASHBOARD', state)
+  
   return {
     bitcoinHistorical : state.BTC.bitcoinHistorical,
-    bitcoin: state.BTC.bitcoinHistorical
+    bitcoin: state.BTC.bitcoinHistorical,
+    articles: state.newsArticles
   }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -30,12 +30,12 @@ const mapDispatchToProps = (dispatch) => {
 class Dashboard extends Component{
   constructor(props){
     super(props)
-    this.state = {
-      crypto: {}
-    }
+  }
+
+  componentDidMount(){
+    
   }
   render(){    
-    console.log(this.props, 'this is the props in dashboard')
     return (
       <div className = "container">
         <div className = "row">
@@ -49,9 +49,13 @@ class Dashboard extends Component{
           </div>
         </div>
         <div className = "row">
-          <div className = "col-sm-3"> Recent Quote </div>
-          <div className = "col-sm-9"> Top Stories </div>
+          <div className = "col-sm-3"> Recent Quote 
+            <CryptoTicker/>
+          </div>
+          <div className = "col-sm-9"> Top Stories 
+          {this.props.articles.newsArticles.length === 0 ? <div> ...Loading </div> : <div><NewsComponent articles={this.props.articles}/></div>}
         </div>
+      </div>
       </div>
     )
   }

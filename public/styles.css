@@ -1,8 +1,15 @@
 .title {
   font-family: 'Roboto', sans-serif;
-  font-weight: bold;
 }
 .container {
   font-family: 'Roboto', sans-serif;
-  font-weight: bold;
+}
+.article-title{
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2em;
+  color: #282828
+}
+.article-description{
+  font-size: 1em;
+  color: #444444
 }

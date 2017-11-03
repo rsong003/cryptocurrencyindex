@@ -17,7 +17,6 @@ export const getHistoricalEthereumPrice = historical => ({
 export const fetchHistoricalEthereum = coords => (dispatch) => {
   axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=ETH&tsym=USD&allData=true')
   .then(result => {
-    console.log(result, 'this is the reuslt of the API call')
     dispatch(getHistoricalEthereumPrice(result))
   })
 }

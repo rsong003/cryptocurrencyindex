@@ -4,7 +4,6 @@ import {GET_HISTORICAL_ETH} from '../actions/Ethereum.js'
 const INITIAL_STATE = {ethereum: {}, ethereumHistorical: []}
 
 export default function(state = INITIAL_STATE, action) {
-  console.log(action.payload)
   switch(action.type) {
     case UPDATE_ETH_PRICE:
       return Object.assign({}, state, {ethereum: action.payload});

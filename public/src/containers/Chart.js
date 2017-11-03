@@ -15,7 +15,6 @@ import { fitWidth } from "react-stockcharts/lib/helper";
 
 class AreaChart extends React.Component {
 	render() {
-		console.log(this.props, this.props.type, 'this is the props and props type')
 		const { data, type, width, ratio } = this.props;
 		return (
 			<ChartCanvas ratio={ratio} width={width-100} height={200}
