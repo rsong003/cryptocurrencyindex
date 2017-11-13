@@ -11,6 +11,8 @@ const http = require('http')
 const server = http.createServer(app)
 const socketIO = require('socket.io')
 const io = socketIO(server)
+const axios = require('axios')
+
 
 
 
@@ -53,8 +55,7 @@ io.on('connection', socket => {
   
 })
 
-
-
+// const socket = io.connect(io.sockets.on('https://streamer.cryptocompare.com/') )
 
 server.listen(PORT, (err)=>{
   if (err){
@@ -88,12 +89,41 @@ client.hkeys("hash key", function (err, replies) {
     replies.forEach(function (reply, i) {
         console.log("    " + i + ": " + reply);
     });
-    client.quit();
+    // client.quit();
 });
 
+
+
+//check to see if redis object is in --- if not send API request and set the data
+
+
+
 redisRouter.get('/getRedisData', (req, res) => {
-  console.log('hello')
-  res.status(200).send('redis is connected and ready to receive routes')
+  // client.hmset('crypto', 'BTC', '43')
+  // client.hgetall('crypto', function(err, object){
+  //   console.log(object)
+  // })
+  // client.get()
+  // console.log('hello')
+  client.get('cryptos1', function(err, reply){
+    
+    if (reply === null){
+      
+      axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=ETH&tsym=USD&limit=30&e=CCCAGG')
+      .then(result => {
+        var stringified = JSON.stringify(result.data)
+        client.hmset('cryptos1', 'ETH', result.data)
+        client.hgetall('cryptos1', function(err, object){
+          res.status(200).send(object)
+        })
+      })
+    } else {
+      client.hgetall('cryptos1', function(err, object){
+        res.status(200).send(object)
+      })
+    }
+  })
+  
 })
 
 

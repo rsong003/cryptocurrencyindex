@@ -13,3 +13,116 @@
   font-size: 1em;
   color: #444444
 }
+.greenTick {
+    color: black;
+    -webkit-animation-name: blackGreen;  
+    -webkit-animation-iteration-count: 1;  
+    -webkit-animation-duration: .5s; 
+}   
+.redTick {
+  color: black;
+  -webkit-animation-name: blackRed;  
+  -webkit-animation-iteration-count: 1;  
+  -webkit-animation-duration: .5s; 
+}
+#FinanceTitle {
+  font-size: 1.5em;
+  color: #dd4b39;
+}
+#MarketSummary {
+  font-size: 1.5em;
+  color: black;
+}
+.topDashBoard {
+  margin-bottom: 11px;
+  border-bottom: 1px solid #ebebeb;
+  padding: 7px;
+}
+#search{
+  width: 100%;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(20%);
+  padding-right: 0px;
+  margin-right: -1px;
+}
+#topDash{
+  background-color: #f1f1f1;
+  height: 3em;
+}
+.AppTitle{
+  text-align: center;
+  height: 3em;
+  position: relative;
+  top: 50%;
+  transform: translateY(20%);
+}
+.searchButton{
+  border:1px solid transparent;
+  background: #4387fd;
+  padding-left: 0px;
+  height: 20px;
+  width: 45px;
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(20%);
+  padding-right: 0px;
+  margin-right: -1px;
+}
+.searchBar{
+  padding-right: 0px;
+  margin-right: -5px;
+}
+/* basic positioning */
+.marketShareItem {
+  padding: 0px;
+}
+.table>tbody>tr>td{
+  padding: 0px;
+}
+#btcdash{
+  color: #5DA5DA;
+}
+#ethdash{
+  color: #FAA43A;
+}
+#etcdash{
+  color: tomato;
+}
+#ltcdash{
+  color: gray;
+}
+#neodash{
+  color: gold;
+}
+#xemdash{
+  color: cyan;
+}
+#xmrdash{
+  color: #60BD68;
+}
+#xrpdash{
+  color: #B2912F;
+}
+#dashdash{
+  color: #B276B2;
+}
+#bchdash{
+  color: #4D4D4D;
+}
+.shareTotal {
+  text-align: right;
+}
+@-webkit-keyframes blackGreen {  
+  from {color: black; }
+	to {color: green; }
+}
+@-webkit-keyframes blackRed {  
+  0% { background-color: white; }
+  50% { background-color: white; }
+  from { color: black; }
+  to { color: red; }
+}
+

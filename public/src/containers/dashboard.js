@@ -11,14 +11,18 @@ import {getHistoricalBitcoinPrice, updateBitcoinPrice } from '../actions/Bitcoin
 import {bindActionCreators} from 'redux'
 import NewsComponent from './NewsComponent.js'
 import CryptoTicker from './CryptoTicker'
+import PieChart from './PieChart.js'
+import MarketShares from './MarketShares.js'
+
+
 
 
 const mapStateToProps = (state) =>{
-  
   return {
     bitcoinHistorical : state.BTC.bitcoinHistorical,
     bitcoin: state.BTC.bitcoinHistorical,
-    articles: state.newsArticles
+    articles: state.newsArticles,
+    openPrices: state.openPrices
   }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -35,22 +39,40 @@ class Dashboard extends Component{
   componentDidMount(){
     
   }
-  render(){    
+  render(){
+    console.log(this.props, 'this is the props for dashboard')
     return (
       <div className = "container">
+        <div className="row" id="topDash">
+            <div className="col-sm-6">
+              <div className="input-group">
+                <input type="text" className="form-control" placeholder="Search for..." aria-label="Search for..."/>
+                <span className="input-group-btn">
+                  <button className="btn btn-secondary" type="button">Go!</button>
+                </span>
+              </div>
+            </div>
+            <div className="col-sm-6"></div>
+        </div> 
         <div className = "row">
-          <div className = "col-sm-3">Finance</div>
-          <div className = "col-sm-9">Market Summary</div>
+          <div className = "col-sm-3" id="FinanceTitle">Finance</div>
+          <div className = "col-sm-9" id="MarketSummary">Market Summary</div>
         </div>
+        <div className ="topDashBoard"></div>
         <div className = "row">
-          <div className = "col-sm-3 title"> Markets</div>
+          <div className = "col-sm-3"> Markets 
+            <div className ="piechart">
+            <PieChart />
+            </div>
+          </div>
           <div className = "col-sm-9">
           {this.props.bitcoinHistorical.length === 0 ? <div> ...Loading </div> : <ChartComponent />}
           </div>
         </div>
         <div className = "row">
-          <div className = "col-sm-3"> Recent Quote 
-            <CryptoTicker/>
+          <div className = "col-sm-3"> Market Shares <span className="shareTotal">% of Market</span>
+            {this.props.openPrices.marketShares.XRP !== undefined ? <MarketShares data={this.props.openPrices.marketShares} /> : <div></div>}
+            {this.props.openPrices.openPrices.data ? <CryptoTicker openPrices={this.props.openPrices.openPrices.data.RAW}/> : <div>...Loading </div>} 
           </div>
           <div className = "col-sm-9"> Top Stories 
           {this.props.articles.newsArticles.length === 0 ? <div> ...Loading </div> : <div><NewsComponent articles={this.props.articles}/></div>}

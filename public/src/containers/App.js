@@ -5,12 +5,12 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 import {fetchHistoricalBitcoin, getHistoricalBitcoinPrice} from '../actions/Bitcoin.js'
 import {fetchNewsArticles} from '../actions/NewsArticles.js'
+import {fetchOpenPrices} from '../actions/Ticker.js'
 import Login from './Login';
 
 
 
 const mapStateToProps = (state) =>{
-  console.log(state, 'this is the state in app')
   return {
     
   }
@@ -30,11 +30,11 @@ class App extends Component {
     const { dispatch } = this.props;
     dispatch(fetchHistoricalBitcoin())
     dispatch(fetchNewsArticles())
+    dispatch(fetchOpenPrices())
   }
   
 
   render(){
-    console.log(this.props, 'this is the props in app')
     return(
       <div> 
         <Dashboard />

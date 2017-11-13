@@ -7,7 +7,6 @@ export default class NewsComponent extends Component {
     super(props)
   }
   render(){
-    console.log(this.props, 'this is the props for newscomponent')
     return (
       
       <div>

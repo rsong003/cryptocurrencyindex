@@ -39,7 +39,7 @@ const Users = db.define('Users', {
     type: Sequelize.FLOAT,
     // allowNull: true
   },
-  BitConnect: {
+  ETC: {
     type: Sequelize.FLOAT,
     // allowNull: true
   },
