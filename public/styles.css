@@ -115,6 +115,22 @@
 .shareTotal {
   text-align: right;
 }
+#marketShareTitle{
+  font-weight: bold;
+  padding: 0px;
+  margin-bottom: 10px;
+}
+#marketSharePercentage{
+  text-align: right;
+  padding:0px;
+}
+.CurrentPrices{
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+#openPrices{
+  padding-left: 0px;
+}
 @-webkit-keyframes blackGreen {  
   from {color: black; }
 	to {color: green; }

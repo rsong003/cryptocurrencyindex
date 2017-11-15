@@ -19,16 +19,26 @@ const mapStateToProps = (state) =>{
 }
 
 class ChartComponent extends Component {
-	
+	constructor(props){
+		super(props)
+		this.state = {
+      data: this.props.bitcoin
+		}
+	}
 	render() {
-		const chartBitcoinData = { data: this.props.bitcoin, ratio: 2, type: "hybrid", width: 225, }
-		
+		const chartData = { data: this.state.data, ratio: 2, type: "hybrid", width: 225, }
+		console.log(chartData)
 		return (
-			<TypeChooser>
-				{type => <Chart type={type} data={chartBitcoinData.data} />}
-			</TypeChooser>
+			<div>
+				<TypeChooser>
+					{type => <Chart type={type} data={chartData.data} />}
+				</TypeChooser>
+			</div>
 		)
 	}
 }
 
 export default connect(mapStateToProps)(ChartComponent)
+
+
+
