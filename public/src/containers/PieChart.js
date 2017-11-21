@@ -2,10 +2,6 @@ import React, {Component} from 'react'
 import {VictoryPie} from 'victory'
 import {connect} from 'react-redux'
 
-
-
-
-
 const mapStateToProps = (state) => {
   return {
     marketShares : state.openPrices.marketShares

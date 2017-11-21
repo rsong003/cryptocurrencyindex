@@ -52,7 +52,7 @@ class Dashboard extends Component{
                   <button className="btn btn-secondary" type="button">Go!</button>
                 </span>
               </div>
-            </div>
+          </div>
         </div>
         <div className="row">
           <div className="col-sm-3">
