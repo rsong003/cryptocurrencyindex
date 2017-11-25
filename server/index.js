@@ -49,26 +49,65 @@ client.hkeys("hash key", function (err, replies) {
 });
 
 redisRouter.get('/getRedisData', (req, res) => {
-
-  client.get('cryptos1', function(err, reply){
-    
+  client.get('indexFund', function(err, reply){
     if (reply === null){
-      
+      let indexObject = {}
       axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=ETH&tsym=USD&limit=30&e=CCCAGG')
-      .then(result => {
-        var stringified = JSON.stringify(result.data)
-        client.hmset('cryptos1', 'ETH', result.data)
-        client.hgetall('cryptos1', function(err, object){
-          res.status(200).send(object)
+      .then(ethResult => {
+        indexObject['ETH'] = ethResult.data
+        axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=30&e=CCCAGG')
+        .then(btcResult => {
+          indexObject['BTC'] = btcResult.data
+          axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=LTC&tsym=USD&limit=30&e=CCCAGG')
+          .then(ltcResult => {
+            indexObject['LTC'] = ltcResult.data
+            axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=ETC&tsym=USD&limit=30&e=CCCAGG')
+            .then(etcResult => {
+              indexObject['ETC'] = etcResult.data
+              axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=NEO&tsym=USD&limit=30&e=CCCAGG')
+              .then(neoResult => {
+                indexObject['NEO'] = neoResult.data
+                axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=XMR&tsym=USD&limit=30&e=CCCAGG')
+                .then(xmrResult => {
+                  indexObject['XMR'] = xmrResult.data
+                  axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=DASH&tsym=USD&limit=30&e=CCCAGG')
+                  .then(dashResult => {
+                    indexObject['DASH'] = dashResult.data
+                    axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=XEM&tsym=USD&limit=30&e=CCCAGG')
+                    .then(xemResult => {
+                      indexObject['XEM'] = xemResult.data
+                      axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=XRP&tsym=USD&limit=30&e=CCCAGG')
+                      .then(xrpResult => {
+                        indexObject['XRP'] = xrpResult.data
+                        axios.get('https://min-api.cryptocompare.com/data/histoday?fsym=BCH&tsym=USD&limit=30&e=CCCAGG')
+                        .then(bchResult => {
+                          indexObject['BCH'] = bchResult.data
+                          var stringified = JSON.stringify(indexObject)
+                          client.hmset('indexFund', 'allCryptos', stringified)
+                          client.hgetall('indexFund', function(err, object){
+                            res.status(200).send(object)
+                          })
+                        })
+                      })
+                    })
+                  })
+                })
+              })
+            })
+          })
         })
       })
-    } else {
-      client.hgetall('cryptos1', function(err, object){
+      
+        // client.hmset('cryptos1', 'ETH', result.data)
+        // client.hgetall('cryptos1', function(err, object){
+        //   res.status(200).send(object)
+      
+      } else {
+      client.hgetall('indexFund', function(err, object){
         res.status(200).send(object)
       })
     }
   })
-  
 })
 
 

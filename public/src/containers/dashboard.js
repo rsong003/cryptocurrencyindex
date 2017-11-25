@@ -35,7 +35,15 @@ class Dashboard extends Component{
   constructor(props){
     super(props)
   }
-
+  componentDidMount(){
+    axios.get('http://localhost:3030/getRedisData')
+    .then(result => {
+      console.log(result)
+      let data = JSON.parse(result.data.allCryptos)
+      console.log(data)
+      
+    })
+  }
   render(){
     console.log(this.props, 'this is the props for dashboard')
     return (

@@ -132,7 +132,8 @@
   padding-left: 0px;
 }
 #areaChart{
-  height: 100%;
+  height: 70%;
+  width: 100%;
   align-content: right;
 }
 .highcharts-area{
