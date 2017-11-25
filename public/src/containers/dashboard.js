@@ -36,9 +36,6 @@ class Dashboard extends Component{
     super(props)
   }
 
-  componentDidMount(){
-    
-  }
   render(){
     console.log(this.props, 'this is the props for dashboard')
     return (
@@ -81,8 +78,8 @@ class Dashboard extends Component{
             </div>
           <div className = "col-sm-9">
             <div className = "row">
-              <div className = "col-sm-2"> Hi </div>
-              <div id ="areaChart "className = "col-sm-10"> 
+              <div className = "col-sm-3">  </div>
+              <div id ="areaChart "className = "col-sm-9"> 
                 {this.props.bitcoinHistorical.length === 0 ? <div> ...Loading </div> : <ChartComponent />}
               </div>
             </div>

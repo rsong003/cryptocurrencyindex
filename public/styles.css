@@ -132,7 +132,11 @@
   padding-left: 0px;
 }
 #areaChart{
+  height: 100%;
   align-content: right;
+}
+.highcharts-area{
+  color: #36bbea;
 }
 @-webkit-keyframes blackGreen {  
   from {color: black; }

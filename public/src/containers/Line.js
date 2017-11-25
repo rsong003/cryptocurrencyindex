@@ -6,7 +6,6 @@ import Chart from './Chart';
 // import bitcoinData from '../../../data.js'
 // import { getData } from "./utils"
 import {connect} from 'react-redux'
-
 import { TypeChooser } from "react-stockcharts/lib/helper";
 
 
@@ -30,9 +29,9 @@ class ChartComponent extends Component {
 		console.log(chartData)
 		return (
 			<div>
-				<TypeChooser>
-					{type => <Chart type={type} data={chartData.data} />}
-				</TypeChooser>
+			
+			<Chart data={chartData.data} />
+			
 			</div>
 		)
 	}
