@@ -72,18 +72,24 @@ class Dashboard extends Component{
                 </div>
               </div>
             </div>
-            <div className="row"><div className="CurrentPrices">Current Prices</div>
+            <div className="row">
+              <div className="CurrentPrices">Current Prices</div>
                 <div id="openPrices"className="col-sm-12">
                   {this.props.openPrices.openPrices.data ? <CryptoTicker openPrices={this.props.openPrices.openPrices.data.RAW}/> : <div>...Loading </div>} 
                 </div>
               </div>
-          </div>
-          <div className = "col-sm-9"> <span id="MarketSummary">Market Summary</span>
-            <div>
-              {this.props.bitcoinHistorical.length === 0 ? <div> ...Loading </div> : <ChartComponent />}
             </div>
-            <div>
-              {this.props.articles.newsArticles.length === 0 ? <div> ...Loading </div> : <div><NewsComponent articles={this.props.articles}/></div>}
+          <div className = "col-sm-9">
+            <div className = "row">
+              <div className = "col-sm-2"> Hi </div>
+              <div id ="areaChart "className = "col-sm-10"> 
+                {this.props.bitcoinHistorical.length === 0 ? <div> ...Loading </div> : <ChartComponent />}
+              </div>
+            </div>
+            <div className = "row">
+              <div className = "col-sm-12"> <span id="MarketSummary">Market Summary</span>
+                {this.props.articles.newsArticles.length === 0 ? <div> ...Loading </div> : <div><NewsComponent articles={this.props.articles}/></div>}
+              </div>
             </div>
           </div>
         </div>

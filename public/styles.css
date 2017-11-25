@@ -131,6 +131,9 @@
 #openPrices{
   padding-left: 0px;
 }
+#areaChart{
+  align-content: right;
+}
 @-webkit-keyframes blackGreen {  
   from {color: black; }
 	to {color: green; }
@@ -141,4 +144,5 @@
   from { color: black; }
   to { color: red; }
 }
+
 
