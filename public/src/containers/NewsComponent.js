@@ -11,8 +11,8 @@ export default class NewsComponent extends Component {
       
       <div>
         <div>
-        {this.props.articles.newsArticles.map(article => {
-          return <NewsEntry articles={article}/>
+        {this.props.articles.newsArticles.map((article, i) => {
+          return <NewsEntry key={i} articles={article}/>
         })}
         </div>
       </div>

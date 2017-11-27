@@ -10,7 +10,6 @@ export default class MarketShares extends Component{
     super(props)
   }
   render(){
-    console.log(this.props, 'this is the props in shares')
     const colorScale=['#5DA5DA', 'FAA43A', 'tomato', "orange", "gold", "cyan", "#60BD68", "#B2912F", "#B276B2", "#4D4D4D"]
     const coins = ['BTC', 'ETH', 'ETC', 'LTC', 'NEO', 'XEM', 'XMR', 'XRP', 'DASH', 'BCH']
     return (

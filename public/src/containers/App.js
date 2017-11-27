@@ -15,9 +15,7 @@ const mapStateToProps = (state) =>{
     
   }
 }
-// const mapDispatchToProps = (dispatch) => {
-//   return bindActionCreators({getHistoricalBitcoinPrice}, dispatch)
-// }
+
 
 class App extends Component {
   constructor(props){

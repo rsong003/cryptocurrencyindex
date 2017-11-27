@@ -26,7 +26,6 @@ class ChartComponent extends Component {
 	}
 	render() {
 		const chartData = { data: this.state.data, ratio: 2, type: "hybrid", width: 225, }
-		console.log(chartData)
 		return (
 			<div>
 			

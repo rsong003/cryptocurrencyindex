@@ -11,7 +11,6 @@ export default class Share extends Component{
     super(props)
   }
   render(){
-    console.log(this.props)
     return (
       <div className="row">
         <div className="col-sm-3">

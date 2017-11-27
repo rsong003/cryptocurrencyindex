@@ -12,7 +12,7 @@ export default class CryptoTicker extends Component{
     return (
       <div>
         {coins.map((coin, i) => {
-          return <Tick coinName={coins[i]} data={this.props.openPrices[coins[i]]} />
+          return <Tick key={i} coinName={coins[i]} data={this.props.openPrices[coins[i]]} />
         })}
       </div>
     )
