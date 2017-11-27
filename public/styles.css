@@ -139,6 +139,9 @@
 .highcharts-area{
   color: #36bbea;
 }
+.searchBar{
+  display: flex;
+}
 @-webkit-keyframes blackGreen {  
   from {color: black; }
 	to {color: green; }

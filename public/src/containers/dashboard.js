@@ -29,11 +29,13 @@ const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({getHistoricalBitcoinPrice, updateBitcoinPrice}, dispatch)
 }
 
-
-
 class Dashboard extends Component{
   constructor(props){
     super(props)
+    this.state = {
+      input: ''
+    }
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
   componentDidMount(){
     axios.get('http://localhost:3030/getRedisData')
@@ -43,6 +45,17 @@ class Dashboard extends Component{
       
     })
   }
+  handleInputChange(e){
+    console.log(e.target.value)
+    e.preventDefault()
+    this.setState({
+      input: e.target.value
+    }, ()=> {console.log(this.state)})
+  }
+  handleSubmit(e){
+    e.preventDefault()
+    console.log("Input Value: ", e.target)
+  }
   render(){
     console.log(this.props, 'this is the props in dashboard')
     return (
@@ -51,10 +64,12 @@ class Dashboard extends Component{
           <div className="col-sm-3"></div>
             <div className="col-sm-7">
               <div className="input-group">
-                <input type="text" className="form-control" placeholder="Search for..." aria-label="Search for..."/>
-                <span className="input-group-btn">
-                  <button className="btn btn-secondary" type="button">Go!</button>
-                </span>
+                <form onSubmit={this.handleSubmit} className="searchBar">
+                  <input type="text" onChange={this.handleInputChange} className="form-control" placeholder="Search for..." aria-label="Search for..."/>
+                  <span className="input-group-btn">
+                  <button className="btn btn-secondary" type="submit">Go!</button>
+                  </span>
+                </form>
               </div>
           </div>
         </div>

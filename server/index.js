@@ -22,7 +22,7 @@ app.use('/api', routes)
 app.use('/', redisRouter)
 
 io.on('connection', socket => {
-  console.log('client connected to socketIO!')
+  
 })
 
 server.listen(PORT, (err)=>{
